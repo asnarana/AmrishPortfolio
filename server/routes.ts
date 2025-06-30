@@ -51,21 +51,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Delete contact message
-  app.delete("/api/contact-messages/:id", async (req, res) => {
-    try {
-      const id = parseInt(req.params.id);
-      const success = await storage.deleteContactMessage(id);
-      if (success) {
-        res.json({ success: true });
-      } else {
-        res.status(404).json({ success: false, message: "Message not found" });
-      }
-    } catch (error) {
-      res.status(500).json({ success: false, message: "Failed to delete message" });
-    }
-  });
-
   // === PROJECTS ROUTES ===
   app.get("/api/projects", async (req, res) => {
     try {
