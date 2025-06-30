@@ -29,11 +29,9 @@ export interface Experience {
 export const skills: Skill[] = [
   // Languages
   { name: "Java", level: 95, category: "languages" },
+  { name: "SQL", level: 88, category: "languages" },
   { name: "Python", level: 85, category: "languages" },
   { name: "JavaScript", level: 85, category: "languages" },
-  { name: "SQL", level: 88, category: "languages" },
-  { name: "C", level: 80, category: "languages" },
-  { name: "R", level: 75, category: "languages" },
 
   // Frameworks
   { name: "React", level: 87, category: "frameworks" },
