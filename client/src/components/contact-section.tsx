@@ -53,12 +53,27 @@ export function ContactSection() {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
-  const handleResumeDownload = () => {
-    // In a real application, this would download the actual resume file
-    toast({
-      title: "Resume download",
-      description: "Resume download feature would be implemented with actual PDF file hosting.",
-    });
+  const handleResumeDownload = async () => {
+    try {
+      // Create a link element and trigger download
+      const link = document.createElement('a');
+      link.href = '/api/resume/download';
+      link.download = 'Amrish-Naranappa-Resume.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      toast({
+        title: "Resume downloading",
+        description: "Your resume download has started.",
+      });
+    } catch (error) {
+      toast({
+        title: "Download failed",
+        description: "Unable to download resume. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
