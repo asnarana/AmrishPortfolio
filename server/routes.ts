@@ -9,6 +9,8 @@ import {
   insertSkillSchema
 } from "@shared/schema";
 import { z } from "zod";
+import { readFileSync } from "fs";
+import { join } from "path";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form submission
@@ -309,93 +311,20 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // === RESUME DOWNLOAD ===
   app.get("/api/resume/download", async (req, res) => {
     try {
+      // Path to the actual resume PDF file
+      const resumePath = join(process.cwd(), 'attached_assets', 'amrishdec25 (2)_1751297578613.pdf');
+      
+      // Read the actual PDF file
+      const pdfContent = readFileSync(resumePath);
+      
       // Set headers for PDF download
       res.setHeader('Content-Type', 'application/pdf');
       res.setHeader('Content-Disposition', 'attachment; filename="Amrish-Naranappa-Resume.pdf"');
-      
-      // For now, we'll create a simple PDF response
-      // In production, you would store the actual PDF file and serve it
-      const pdfContent = Buffer.from(`%PDF-1.4
-1 0 obj
-<<
-/Type /Catalog
-/Pages 2 0 R
->>
-endobj
-
-2 0 obj
-<<
-/Type /Pages
-/Kids [3 0 R]
-/Count 1
->>
-endobj
-
-3 0 obj
-<<
-/Type /Page
-/Parent 2 0 R
-/Resources <<
-/Font <<
-/F1 4 0 R
->>
->>
-/MediaBox [0 0 612 792]
-/Contents 5 0 R
->>
-endobj
-
-4 0 obj
-<<
-/Type /Font
-/Subtype /Type1
-/BaseFont /Times-Roman
->>
-endobj
-
-5 0 obj
-<<
-/Length 200
->>
-stream
-BT
-/F1 18 Tf
-100 700 Td
-(Amrish Naranappa) Tj
-0 -30 Td
-/F1 12 Tf
-(AI Developer & Software Engineer) Tj
-0 -30 Td
-(Phone: 714-389-4886) Tj
-0 -20 Td
-(Email: amrish.naranappa@gmail.com) Tj
-0 -20 Td
-(LinkedIn: linkedin.com/in/amrishn) Tj
-0 -20 Td
-(GitHub: github.com/amrishn) Tj
-ET
-endstream
-endobj
-
-xref
-0 6
-0000000000 65535 f 
-0000000010 00000 n 
-0000000079 00000 n 
-0000000136 00000 n 
-0000000273 00000 n 
-0000000351 00000 n 
-trailer
-<<
-/Size 6
-/Root 1 0 R
->>
-startxref
-604
-%%EOF`);
+      res.setHeader('Content-Length', pdfContent.length);
       
       res.send(pdfContent);
     } catch (error) {
+      console.error('Resume download error:', error);
       res.status(500).json({ 
         success: false, 
         message: "Failed to download resume" 
