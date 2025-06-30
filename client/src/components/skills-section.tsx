@@ -55,8 +55,9 @@ export function SkillsSection() {
   ];
 
   const additionalTechnologies = [
-    "C", "R", "PHP", "HTML/CSS", "Jupyter", "Pandas", "NumPy", 
-    "Plotly", "Power BI", "Linux", "Postman", "Google Cloud Console", "Jira"
+    "C", "R", "PHP", "HTML/CSS", "Node.js", "Prophet", "Kubernetes", 
+    "Jupyter", "Pandas", "NumPy", "Plotly", "Power BI", "Linux", 
+    "Postman", "Google Cloud Console", "Jira", "JUnit", "Hibernate"
   ];
 
   return (

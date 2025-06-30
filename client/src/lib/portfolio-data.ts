@@ -36,23 +36,20 @@ export const skills: Skill[] = [
   // Frameworks
   { name: "React", level: 87, category: "frameworks" },
   { name: "SpringBoot", level: 85, category: "frameworks" },
-  { name: "Flask", level: 80, category: "frameworks" },
-  { name: "Node.js", level: 75, category: "frameworks" },
   { name: "Dash", level: 82, category: "frameworks" },
+  { name: "Flask", level: 80, category: "frameworks" },
 
   // AI/ML
-  { name: "PyTorch", level: 85, category: "ai-ml" },
-  { name: "Transformers", level: 80, category: "ai-ml" },
   { name: "Whisper", level: 90, category: "ai-ml" },
-  { name: "Prophet", level: 75, category: "ai-ml" },
+  { name: "PyTorch", level: 85, category: "ai-ml" },
   { name: "Vosk", level: 82, category: "ai-ml" },
+  { name: "Transformers", level: 80, category: "ai-ml" },
 
   // Cloud & DevOps
+  { name: "Git", level: 85, category: "cloud-devops" },
   { name: "AWS", level: 82, category: "cloud-devops" },
   { name: "Docker", level: 80, category: "cloud-devops" },
-  { name: "Git", level: 85, category: "cloud-devops" },
   { name: "Jenkins", level: 70, category: "cloud-devops" },
-  { name: "Kubernetes", level: 65, category: "cloud-devops" },
 
   // Databases
   { name: "MySQL", level: 85, category: "databases" },
