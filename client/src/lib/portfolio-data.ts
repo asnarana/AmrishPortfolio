@@ -1,7 +1,7 @@
 export interface Skill {
   name: string;
   level: number;
-  category: 'languages' | 'frameworks' | 'ai-ml' | 'cloud-devops';
+  category: 'languages' | 'frameworks' | 'ai-ml' | 'cloud-devops' | 'databases';
 }
 
 export interface Project {
@@ -28,8 +28,8 @@ export interface Experience {
 
 export const skills: Skill[] = [
   // Languages
-  { name: "Python", level: 95, category: "languages" },
-  { name: "Java", level: 90, category: "languages" },
+  { name: "Java", level: 95, category: "languages" },
+  { name: "Python", level: 85, category: "languages" },
   { name: "JavaScript", level: 85, category: "languages" },
   { name: "SQL", level: 88, category: "languages" },
   { name: "C", level: 80, category: "languages" },
@@ -55,6 +55,12 @@ export const skills: Skill[] = [
   { name: "Git", level: 85, category: "cloud-devops" },
   { name: "Jenkins", level: 70, category: "cloud-devops" },
   { name: "Kubernetes", level: 65, category: "cloud-devops" },
+
+  // Databases
+  { name: "MySQL", level: 85, category: "databases" },
+  { name: "PostgreSQL", level: 80, category: "databases" },
+  { name: "MongoDB", level: 75, category: "databases" },
+  { name: "PlanetScale", level: 70, category: "databases" },
 ];
 
 export const projects: Project[] = [

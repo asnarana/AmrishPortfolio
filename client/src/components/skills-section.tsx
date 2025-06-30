@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 import { skills } from "@/lib/portfolio-data";
-import { Code, Layers, Bot, Cloud } from "lucide-react";
+import { Code, Layers, Bot, Cloud, Database } from "lucide-react";
 
 export function SkillsSection() {
   const [ref, entry] = useIntersectionObserver({ threshold: 0.3 });
@@ -43,6 +43,11 @@ export function SkillsSection() {
       skills: skills.filter(skill => skill.category === 'ai-ml'),
     },
     {
+      title: "Databases",
+      icon: Database,
+      skills: skills.filter(skill => skill.category === 'databases'),
+    },
+    {
       title: "Cloud & DevOps",
       icon: Cloud,
       skills: skills.filter(skill => skill.category === 'cloud-devops'),
@@ -50,8 +55,8 @@ export function SkillsSection() {
   ];
 
   const additionalTechnologies = [
-    "MongoDB", "PostgreSQL", "MySQL", "Kubernetes", "Jupyter",
-    "Pandas", "NumPy", "Plotly", "Power BI", "Linux"
+    "Jupyter", "Pandas", "NumPy", "Plotly", "Power BI", "Linux",
+    "Postman", "Google Cloud Console", "Jira", "JUnit", "Hibernate"
   ];
 
   return (
@@ -67,7 +72,7 @@ export function SkillsSection() {
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 mb-12">
           {skillCategories.map((category, index) => (
             <Card key={category.title} className="bg-white dark:bg-gray-900 shadow-lg">
               <CardContent className="p-6">
