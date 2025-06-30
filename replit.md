@@ -103,6 +103,13 @@ The application follows a monorepo structure with clear separation between clien
 ```
 Changelog:
 - June 30, 2025. Initial setup
+- June 30, 2025. Expanded backend with comprehensive CMS functionality:
+  * Added PostgreSQL database with full schema
+  * Created database tables for projects, blog posts, experiences, skills
+  * Implemented complete CRUD operations for all content types
+  * Added RESTful API endpoints for content management
+  * Updated technical expertise section with databases category
+  * Applied user-requested skill level adjustments (Java: 95%, Python: 85%)
 ```
 
 ## User Preferences
