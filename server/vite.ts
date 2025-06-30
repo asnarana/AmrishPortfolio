@@ -15,6 +15,7 @@ export function log(message: string, source = "express") {
     second: "2-digit",
     hour12: true,
   });
+  
 
   console.log(`${formattedTime} [${source}] ${message}`);
 }
@@ -49,7 +50,7 @@ export async function setupVite(app: Express, server: Server) {
         import.meta.dirname,
         "..",
         "client",
-        "index.html",
+        "index.html", 
       );
 
       // always reload the index.html file from disk incase it changes
