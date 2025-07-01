@@ -20,7 +20,10 @@ import {
   type InsertSkill
 } from "../shared/schema.js";
 
-// this class will be used by routes.ts to interact with the database and perform CRUD operations in real time 
+// import db instance and query helpers
+import { db } from "./db.js";
+import { eq, desc } from "drizzle-orm";
+
 // defines the IStorage interface that will be implemented by the DatabaseStorage class
 export interface IStorage {
   // Users
@@ -64,23 +67,20 @@ export interface IStorage {
   updateSkill(id: number, updates: Partial<InsertSkill>): Promise<Skill | undefined>;
   deleteSkill(id: number): Promise<boolean>;
 }
-// import db instance and query helpers
-import { db } from "./db.js";
-import { eq, desc } from "drizzle-orm";
+
 // implements the IStorage interface using drizzle orm
 export class DatabaseStorage implements IStorage {
   // Users
-  // fetch user by id 
   async getUser(id: number): Promise<User | undefined> {
     const [user] = await db.select().from(users).where(eq(users.id, id));
     return user || undefined;
   }
-  // fetch user by username
+
   async getUserByUsername(username: string): Promise<User | undefined> {
     const [user] = await db.select().from(users).where(eq(users.username, username));
     return user || undefined;
   }
-  // create user 
+
   async createUser(insertUser: InsertUser): Promise<User> {
     const [user] = await db
       .insert(users)
@@ -99,8 +99,16 @@ export class DatabaseStorage implements IStorage {
   }
 
   async getContactMessages(): Promise<ContactMessage[]> {
+    // explicit column selection to avoid type errors
     return await db
-      .select()
+      .select({
+        id: contactMessages.id,
+        name: contactMessages.name,
+        email: contactMessages.email,
+        subject: contactMessages.subject,
+        message: contactMessages.message,
+        createdAt: contactMessages.createdAt
+      })
       .from(contactMessages)
       .orderBy(desc(contactMessages.createdAt));
   }
@@ -113,7 +121,7 @@ export class DatabaseStorage implements IStorage {
       .returning();
     return project;
   }
-// fetches all projects from the database
+
   async getProjects(): Promise<Project[]> {
     return await db
       .select()
@@ -121,7 +129,6 @@ export class DatabaseStorage implements IStorage {
       .orderBy(desc(projects.createdAt));
   }
 
-//Fetches only the featured projects from the database.
   async getFeaturedProjects(): Promise<Project[]> {
     return await db
       .select()
@@ -275,5 +282,6 @@ export class DatabaseStorage implements IStorage {
     return (result.rowCount || 0) > 0;
   }
 }
+
 // Export a singleton instance of DatabaseStorage for use throughout your app
 export const storage = new DatabaseStorage();
