@@ -33,7 +33,7 @@ export default function Home() {
   return (
     <div className="custom-cursor">
       <CustomCursor />
-      <Navigation />
+       <Navigation /> 
       <HeroSection />
       <AboutSection />
       <SkillsSection />

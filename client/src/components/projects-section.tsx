@@ -5,6 +5,11 @@ import { Badge } from "@/components/ui/badge";
 import { projects } from "@/lib/portfolio-data";
 import { ExternalLink, Github, CheckCircle } from "lucide-react";
 
+import { blogArticles } from "../lib/blog-data";
+import { Link } from "wouter";
+
+
+
 export function ProjectsSection() {
   const [activeFilter, setActiveFilter] = useState("all");
 
@@ -115,6 +120,25 @@ export function ProjectsSection() {
                     </div>
                   ))}
                 </div>
+
+                {project.relatedArticles && project.relatedArticles.length > 0 && (
+                  <div className="mt-4">
+                    <h3 className="font-semibold mb-2">Related Articles:</h3>
+                    <ul>
+                      {project.relatedArticles.map(slug => {
+                        const article = blogArticles.find(a => a.slug === slug);
+                        if (!article) return null;
+                        return (
+                          <li key={slug}>
+                            <Link to={`/blog/${slug}`} className="text-emerald-600 hover:underline">
+                              {article.title}
+                            </Link>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
+                )}
               </CardContent>
             </Card>
           ))}

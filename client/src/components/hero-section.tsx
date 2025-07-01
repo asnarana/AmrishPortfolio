@@ -56,9 +56,9 @@ export function HeroSection() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <div className="mb-8 animate-fade-in">
           <img 
-            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300" 
+            src="/amrishphoto.jpeg" 
             alt="Amrish Naranappa - Professional headshot" 
-            className="w-40 h-40 rounded-full mx-auto object-cover border-4 border-emerald-600 shadow-2xl animate-glow"
+            className="w-60 h-60 rounded-full mx-auto object-cover border-4 border-emerald-600 shadow-2xl animate-glow"
           />
         </div>
         

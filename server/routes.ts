@@ -1,16 +1,24 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
-import { storage } from "./storage";
+import { storage } from "./storage.js";
 import { 
   insertContactMessageSchema,
   insertProjectSchema,
   insertBlogPostSchema,
   insertExperienceSchema,
   insertSkillSchema
-} from "@shared/schema";
+} from "../shared/schema.js";
 import { z } from "zod";
 import { readFileSync } from "fs";
 import { join } from "path";
+import nodemailer from "nodemailer";
+
+
+
+
+
+
+
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form submission
@@ -331,6 +339,53 @@ export async function registerRoutes(app: Express): Promise<Server> {
       });
     }
   });
+
+  app.post("/api/contact", async (req, res) => {
+    try {
+      const validatedData = insertContactMessageSchema.parse(req.body);
+      const message = await storage.createContactMessage(validatedData);
+  
+      // Send email notification via Nodemailer
+      const transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          user: process.env.NOTIFY_EMAIL,
+          pass: process.env.NOTIFY_EMAIL_PASSWORD,
+        },
+      });
+  
+      await transporter.sendMail({
+        from: `"Portfolio Contact" <${process.env.NOTIFY_EMAIL}>`,
+        to: process.env.NOTIFY_EMAIL_TO,
+        subject: `New Contact Form Submission from ${validatedData.name}`,
+        text: `
+          Name: ${validatedData.name}
+          Email: ${validatedData.email}
+          Subject: ${validatedData.subject}
+          Message: ${validatedData.message}
+        `,
+      });
+  
+      console.log("New contact message:", message);
+  
+      res.json({ success: true, message: "Message sent successfully!" });
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        res.status(400).json({
+          success: false,
+          message: "Invalid form data",
+          errors: error.errors,
+        });
+      } else {
+        res.status(500).json({
+          success: false,
+          message: "Failed to send message",
+        });
+      }
+    }
+  });
+
+
 
   const httpServer = createServer(app);
   return httpServer;

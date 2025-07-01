@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/components/theme-provider";
 import { Sun, Moon, Menu, X } from "lucide-react";
+import { Link } from "wouter";
 
 export function Navigation() {
   const { theme, setTheme } = useTheme();
@@ -43,6 +44,7 @@ export function Navigation() {
                   {item.label}
                 </button>
               ))}
+              <Link to="/blog" className="nav-link text-gray-700 dark:text-gray-300 hover:text-emerald-600 transition-colors">Blogs</Link>
             </div>
           </div>
           
@@ -89,6 +91,7 @@ export function Navigation() {
                 {item.label}
               </button>
             ))}
+            <Link to="/blog" className="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-emerald-600 w-full text-left">Blog</Link>
           </div>
         </div>
       )}

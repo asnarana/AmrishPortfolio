@@ -36,16 +36,16 @@ export function AboutSection() {
                 <div className="text-gray-600 dark:text-gray-400">GPA</div>
               </div>
               <div className="text-center p-6 bg-gray-50 dark:bg-gray-800 rounded-lg">
-                <div className="text-3xl font-bold text-emerald-600 mb-2">95%</div>
-                <div className="text-gray-600 dark:text-gray-400">Whisper Accuracy</div>
+                <div className="text-3xl font-bold text-emerald-600 mb-2">10+</div>
+                <div className="text-gray-600 dark:text-gray-400">Projects Completed</div>
               </div>
               <div className="text-center p-6 bg-gray-50 dark:bg-gray-800 rounded-lg">
-                <div className="text-3xl font-bold text-emerald-600 mb-2">200+</div>
-                <div className="text-gray-600 dark:text-gray-400">Projects Tracked</div>
+                <div className="text-3xl font-bold text-emerald-600 mb-2">36%</div>
+                <div className="text-gray-600 dark:text-gray-400">WER Reduction vs. Baseline</div>
               </div>
               <div className="text-center p-6 bg-gray-50 dark:bg-gray-800 rounded-lg">
-                <div className="text-3xl font-bold text-emerald-600 mb-2">30%</div>
-                <div className="text-gray-600 dark:text-gray-400">Error Reduction</div>
+                <div className="text-3xl font-bold text-emerald-600 mb-2">21</div>
+                <div className="text-gray-600 dark:text-gray-400">NCSU BTEC Batches Analyzed</div>
               </div>
             </div>
           </div>
@@ -64,7 +64,7 @@ export function AboutSection() {
                   <div className="font-medium text-emerald-600">North Carolina State University</div>
                   <div className="text-gray-600 dark:text-gray-400">Bachelor of Science in Computer Science</div>
                   <div className="text-gray-600 dark:text-gray-400">AI Concentration • Statistics Minor</div>
-                  <div className="text-gray-600 dark:text-gray-400">Aug 2022 - Dec 2026 • GPA: 3.81/4.0</div>
+                  <div className="text-gray-600 dark:text-gray-400">Aug 2022 - Dec 2025 • GPA: 3.81/4.0</div>
                 </div>
               </CardContent>
             </Card>

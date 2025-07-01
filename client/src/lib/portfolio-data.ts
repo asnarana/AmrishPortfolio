@@ -14,6 +14,7 @@ export interface Project {
   achievements: string[];
   liveUrl?: string;
   githubUrl?: string;
+  relatedArticles?: string[]; 
 }
 
 export interface Experience {
@@ -71,7 +72,8 @@ export const projects: Project[] = [
       "Deployed using ECR, EC2, and RDS PostgreSQL",
       "Built ETL pipelines with pandas and SQLAlchemy"
     ],
-    githubUrl: "https://github.com/asnarana"
+    githubUrl: "https://github.com/asnarana",
+    relatedArticles: ["why-i-love-react", "choosing-typescript", "deploying-on-vercel"]
   },
   {
     id: "wolf-cafe",
@@ -85,7 +87,8 @@ export const projects: Project[] = [
       "RESTful APIs for CRUD operations",
       "CI/CD pipelines with Github and Jenkins"
     ],
-    githubUrl: "https://github.com/asnarana"
+    githubUrl: "https://github.com/asnarana",
+    relatedArticles: [ "choosing-typescript", "deploying-on-vercel"]
   },
   {
     id: "asr-models",
@@ -99,7 +102,8 @@ export const projects: Project[] = [
       "Tamil/Hindi language support added",
       "Fine-tuned for Sourashtra dialect"
     ],
-    githubUrl: "https://github.com/asnarana"
+    githubUrl: "https://github.com/asnarana",
+    relatedArticles: ["why-i-love-react", "choosing-typescript", "deploying-on-vercel"]
   },
   {
     id: "student-careers",
@@ -113,7 +117,23 @@ export const projects: Project[] = [
       "Email integration with Flask-Mail",
       "AJAX validation with reCAPTCHA"
     ],
-    githubUrl: "https://github.com/asnarana"
+    githubUrl: "https://github.com/asnarana",
+    relatedArticles: ["why-i-love-react", "choosing-typescript", "deploying-on-vercel"]
+  },
+  {
+    id: "speech-recognition-ai",
+    title: "Speech Recognition AI",
+    description: "Built a simple AI leveraging Google's Speech-to-Text API and pyttsx3 library for accurate microphone-based voice recognition, featuring command parsing algorithms and Wolfram Alpha integration.",
+    image: "https://images.unsplash.com/photo-1589254065878-42c9da997008?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
+    technologies: ["Python", "Google Speech-to-Text API", "Wolfram Alpha API", "pyttsx3"],
+    category: ["ai-ml"],
+    achievements: [
+      "Accurate microphone-based voice recognition",
+      "Command parsing for voice commands and web searches",
+      "XML/JSON response processing with Wolfram Alpha API"
+    ],
+    githubUrl: "https://github.com/asnarana",
+    relatedArticles: ["why-i-love-react", "choosing-typescript", "deploying-on-vercel"]
   },
   {
     id: "mars-reporting",
@@ -127,7 +147,8 @@ export const projects: Project[] = [
       "Interactive DataTables with inline editing",
       "Live toast notifications system"
     ],
-    githubUrl: "https://github.com/asnarana"
+    githubUrl: "https://github.com/asnarana",
+    relatedArticles: ["why-i-love-react", "choosing-typescript", "deploying-on-vercel"]
   },
   {
     id: "sensor-fusion",
@@ -141,7 +162,8 @@ export const projects: Project[] = [
       "30% reduction in positional errors",
       "3D prediction models implemented"
     ],
-    githubUrl: "https://github.com/asnarana"
+    githubUrl: "https://github.com/asnarana",
+    relatedArticles: ["why-i-love-react", "choosing-typescript", "deploying-on-vercel"]
   },
 ];
 

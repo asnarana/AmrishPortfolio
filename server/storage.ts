@@ -17,7 +17,7 @@ import {
   type InsertExperience,
   type Skill,
   type InsertSkill
-} from "@shared/schema";
+} from "../shared/schema.js";
 
 export interface IStorage {
   // Users
@@ -62,7 +62,7 @@ export interface IStorage {
   deleteSkill(id: number): Promise<boolean>;
 }
 
-import { db } from "./db";
+import { db } from "./db.js";
 import { eq, desc } from "drizzle-orm";
 
 export class DatabaseStorage implements IStorage {
