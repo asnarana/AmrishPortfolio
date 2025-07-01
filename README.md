@@ -1,6 +1,5 @@
 # AmrishPortfolio
 
-# replit.md
 
 ## Overview
 
