@@ -3,7 +3,7 @@
 
 ## Overview
 
-This is a modern full-stack portfolio application showcasing an AI Developer and Software Engineer's professional profile. The application is built using React with TypeScript for the frontend, Express.js for the backend, and designed to be deployed with PostgreSQL database integration. The portfolio features a responsive design with dark/light theme support, contact form functionality, and comprehensive sections for skills, projects, and experience.
+This is a  portfolio application showcasing my professional profile. The application is built using React with TypeScript for the frontend, Express.js for the backend, and designed to be deployed with PostgreSQL database integration. The portfolio features a responsive design with dark/light theme support, contact form functionality, and comprehensive sections for skills, projects, and experience.
 
 ## System Architecture
 
