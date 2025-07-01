@@ -1,3 +1,12 @@
+// this is the data for the blog articles
+// it is an array of objects
+// each object has a slug, title, date, content, tags, and related projects
+// the slug is the url slug for the article
+// the title is the title of the article
+// the date is the date of the article
+// the content is the content of the article
+// the tags are the tags for the article
+// the related projects are the projects related to the article
 export const blogArticles = [
   {
     slug: "why-i-love-react",

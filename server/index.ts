@@ -1,24 +1,31 @@
+// import express and its types for Request, Response, and NextFunction
 import express, { type Request, Response, NextFunction } from "express";
+// import custom route registration function from routes.ts
 import { registerRoutes } from "./routes.js";
+// import vite.js for setting up vite and serving static files
 import { setupVite, serveStatic, log } from "./vite.js";
 
 const app = express();
+// Middleware to parse incoming JSON payloads
 app.use(express.json());
+// Middleware to parse URL-encoded bodies (for form submissions)
 app.use(express.urlencoded({ extended: false }));
 import dotenv from "dotenv";
 dotenv.config();
-
+// custom logging middleware; captures req start time, path, and response status code
+// and logs it to the console
 app.use((req, res, next) => {
   const start = Date.now();
   const path = req.path;
   let capturedJsonResponse: Record<string, any> | undefined = undefined;
-
+  //   // Monkey-patch res.json to capture JSON before sending
+  //   // this is a technique to modify the behavior of a function at runtime
   const originalResJson = res.json;
   res.json = function (bodyJson, ...args) {
     capturedJsonResponse = bodyJson;
     return originalResJson.apply(res, [bodyJson, ...args]);
   };
-
+//when response finishes, log the request details
   res.on("finish", () => {
     const duration = Date.now() - start;
     if (path.startsWith("/api")) {
@@ -35,12 +42,14 @@ app.use((req, res, next) => {
     }
   });
 
-  next();
+  next(); // continue to the next middleware
 });
-
+// register all the routes
+// immediately invoke the async function to register routes and start the server
 (async () => {
+    // Register all your API/project routes; returns an HTTP server instance
   const server = await registerRoutes(app);
-
+  // centralized error handling middleware ; comes after routes)
   app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
     const status = err.status || err.statusCode || 500;
     const message = err.message || "Internal Server Error";
@@ -52,6 +61,7 @@ app.use((req, res, next) => {
   // importantly only setup vite in development and after
   // setting up all the other routes so the catch-all route
   // doesn't interfere with the other routes
+  // in dev, mount Vite middlewree for hotreloading the frontend , in production, serve the built static files
   if (app.get("env") === "development") {
     await setupVite(app, server);
   } else {

@@ -1,0 +1,46 @@
+npm run build- builds my production files into dist/ so that we use github pages 
+npm run deploy : publish the dist/ to the gh -pages branch 
+
+
+"scripts": {
+  "dev": "cross-env NODE_ENV=development tsx server/index.ts",
+  // Starts your app in “development” mode:
+  //  • cross-env NODE_ENV=development  → sets NODE_ENV so your code can
+  //    load .env and enable dev‐only features (like Vite middleware).
+  //  • tsx server/index.ts            → runs your Express server (with hot reload)
+  //    so front-end and back-end updates happen instantly on localhost.
+
+  "build": "vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist",
+  // produces production‐ready files:
+  //  1. vite build                     → builds React/Vite frontend into `client/dist`
+  //  2. esbuild server/index.ts …      → bundles your server (Express + routes)
+  //     into ESM JS files under `dist/`.
+
+  "start": "cross-env NODE_ENV=production node dist/index.js",
+  // lauunches  compiled, production server:
+  //  • NODE_ENV=production            → disables dev features
+  //  • node dist/index.js              → runs the bundled Express app serving both
+  //    the API and static frontend.
+
+  "check": "tsc",
+  // TypeScript type‐check only (no emit):
+  //  • Ensures you haven’t introduced any type errors before committing.
+
+  "db:push": "drizzle-kit push",
+  // Runs Drizzle’s migration tool to:
+  //  • Compare your `schema.ts` against the database
+  //  • Generate/execute any needed SQL migrations so your Neon Postgres
+  //    schema stays in sync with your TypeScript definitions.
+
+  "predeploy": "npm run build && copy client\\dist\\index.html client\\dist\\404.html",
+  // Prep step before deploying to GitHub Pages:
+  //  1. npm run build                 → regenerates `client/dist` with latest code
+  //  2. copy index.html → 404.html    → duplicates your main HTML so GitHub Pages
+  //     will serve your SPA from any route (fallback for non-root URLs).
+
+  "deploy": "gh-pages -d client/dist"
+  // Pushes the contents of `client/dist` to the `gh-pages` branch:
+  //  • gh-pages -d client/dist        → takes your built static site
+  //    and publishes it to GitHub Pages, making your portfolio live at
+  //    https://asnarana.github.io/AmrishPortfolio
+}

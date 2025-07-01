@@ -1,30 +1,33 @@
+// Define the Skill interface for representing a skill with a name, level, and category
 export interface Skill {
   name: string;
   level: number;
   category: 'languages' | 'frameworks' | 'ai-ml' | 'cloud-devops' | 'databases';
 }
 
+// Define the Project interface for representing a project and its properties
 export interface Project {
   id: string;
   title: string;
   description: string;
-  image: string;
-  technologies: string[];
-  category: string[];
-  achievements: string[];
-  liveUrl?: string;
-  githubUrl?: string;
-  relatedArticles?: string[]; 
+  image: string; // URL to the project's image
+  technologies: string[]; // List of technologies used
+  category: string[]; // Categories for filtering (e.g., ai-ml, fullstack)
+  achievements: string[]; // Key achievements for the project
+  liveUrl?: string; // Optional: link to the live project
+  githubUrl?: string; // Optional: link to the GitHub repo
+  relatedArticles?: string[]; // Optional: slugs of related blog articles
 }
 
+// Define the Experience interface for representing a work or research experience
 export interface Experience {
   id: string;
   title: string;
   company: string;
   location: string;
   duration: string;
-  description: string[];
-  technologies: string[];
+  description: string[]; // List of bullet points describing the experience
+  technologies: string[]; // Technologies used in this experience
 }
 
 export const skills: Skill[] = [
@@ -59,6 +62,8 @@ export const skills: Skill[] = [
   { name: "PlanetScale", level: 70, category: "databases" },
 ];
 
+
+//list of projects each with details like id, title, description, image, technologies, category, achievements, githubUrl, and relatedArticles
 export const projects: Project[] = [
   {
     id: "ecoli-analytics",
@@ -166,7 +171,7 @@ export const projects: Project[] = [
     relatedArticles: ["why-i-love-react", "choosing-typescript", "deploying-on-vercel"]
   },
 ];
-
+// list of experiences each with details like id, title, company, location, duration, description, and technologies
 export const experiences: Experience[] = [
   {
     id: "sourashtra-ai",

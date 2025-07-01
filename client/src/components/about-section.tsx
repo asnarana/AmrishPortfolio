@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Bot, Cloud, Code, TrendingUp } from "lucide-react";
-
+// this is the about section on the homepage 
 export function AboutSection() {
   return (
     <section id="about" className="py-20 bg-white dark:bg-gray-900">
@@ -64,7 +64,7 @@ export function AboutSection() {
                   <div className="font-medium text-emerald-600">North Carolina State University</div>
                   <div className="text-gray-600 dark:text-gray-400">Bachelor of Science in Computer Science</div>
                   <div className="text-gray-600 dark:text-gray-400">AI Concentration • Statistics Minor</div>
-                  <div className="text-gray-600 dark:text-gray-400">Aug 2022 - Dec 2025 • GPA: 3.81/4.0</div>
+                  <div className="text-gray-600 dark:text-gray-400"> GPA: 3.81/4.0</div>
                 </div>
               </CardContent>
             </Card>

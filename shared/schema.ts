@@ -1,13 +1,18 @@
 import { pgTable, text, serial, integer, boolean, timestamp, jsonb } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
+// pgTable used to define postgreSQl table schema in drizzle orm
+// createInsertSchema used to generate zod schemas for inserting data into the table
+// zod used to validate data at the client side 
 import { z } from "zod";
+// main Zod object, used for creating and composing validation schemas in TypeScript/JavaScript.
 
+// defining users table 
 export const users = pgTable("users", {
   id: serial("id").primaryKey(),
   username: text("username").notNull().unique(),
   password: text("password").notNull(),
 });
-
+// defining contact messages table 
 export const contactMessages = pgTable("contact_messages", {
   id: serial("id").primaryKey(),
   name: text("name").notNull(),
@@ -71,7 +76,9 @@ export const skills = pgTable("skills", {
   updatedAt: timestamp("updated_at").defaultNow(),
 });
 
-// Insert schemas
+// Create Zod-based insert schemas for type-safe inserts
+// pick is used to select only the fields that are needed for the insert
+// omit is used to exclude the fields that are not needed for the insert
 export const insertUserSchema = createInsertSchema(users).pick({
   username: true,
   password: true,
@@ -108,7 +115,13 @@ export const insertSkillSchema = createInsertSchema(skills).omit({
   updatedAt: true,
 });
 
-// Types
+// export ts types for inputs and query results 
+// InsertUser: A TypeScript type inferred from your Zod validation schema (insertUserSchema).
+//Purpose: Represents the shape of data you expect when inserting a new user (e.g., from a form or API).
+//Apply to schema.ts
+//User: A TypeScript type inferred from your Drizzle ORM table definition (users).
+//Purpose: Represents a user record as it comes from the database (including all fields, possibly with defaults and generated values).
+
 export type InsertUser = z.infer<typeof insertUserSchema>;
 export type User = typeof users.$inferSelect;
 

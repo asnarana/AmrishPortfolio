@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-
+//list of freq asked questions user can possibliy ask chat bot
 const FAQS = [
   { q: "What is this portfolio about?", a: "This is Amrish's portfolio showcasing projects, skills, and experience." },
   { q: "How can I contact you?", a: "You can use the contact form on this site or email me directly." },
@@ -16,28 +16,34 @@ const FAQS = [
   { q: "How quickly do you respond to messages?", a: "I usually respond within 24-48 hours." },
   { q: "Do you contribute to open source?", a: "Yes, I enjoy contributing to open-source projects and collaborating with the community." },
 ];
-
+// Function to find an answer to a user's question from the FAQS list
 function getAnswer(question: string) {
   const found = FAQS.find(faq => question.toLowerCase().includes(faq.q.toLowerCase().split(" ")[0]));
   return found ? found.a : "Sorry, I don't have an answer for that yet!";
 }
-
+// chat bot component
 export const ChatbotWidget: React.FC = () => {
+  // state to control the open/close state of the chatbot
   const [open, setOpen] = useState(false);
+  // state to store the messages in the chatbot
   const [messages, setMessages] = useState<{ from: "user" | "bot"; text: string }[]>([]);
+  // state to store the input from the user
   const [input, setInput] = useState("");
+  // ref to the chat end div
   const chatEndRef = useRef<HTMLDivElement>(null);
-
+// scroll to the bottom of the chat when a new message is added
   useEffect(() => {
     if (open && chatEndRef.current) {
       chatEndRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [messages, open]);
-
+  // handle the send button click
   const handleSend = (e: React.FormEvent) => {
     e.preventDefault();
     if (!input.trim()) return;
+    // add user message to the messages state
     setMessages(msgs => [...msgs, { from: "user", text: input }]);
+    // add bot message to the messages state
     setTimeout(() => {
       setMessages(msgs => [...msgs, { from: "bot", text: getAnswer(input) }]);
     }, 500);
@@ -67,6 +73,7 @@ export const ChatbotWidget: React.FC = () => {
       >
         💬
       </button>
+      {/* chatbot widget */}
       {open && (
         <div
           style={{
@@ -83,15 +90,18 @@ export const ChatbotWidget: React.FC = () => {
             flexDirection: "column",
             overflow: "hidden",
           }}
-        >
+        > 
+
           <div style={{ background: "#222", color: "#fff", padding: "12px 16px", fontWeight: 600 }}>
             Ask me about my projects
             <button onClick={() => setOpen(false)} style={{ float: "right", background: "none", border: "none", color: "#fff", fontSize: 18, cursor: "pointer" }}>&times;</button>
           </div>
+          {/* chat messages */}
           <div style={{ flex: 1, padding: 12, overflowY: "auto", fontSize: 15 }}>
             {messages.length === 0 && (
               <div style={{ color: "#888", fontStyle: "italic" }}>Try asking: "What is this portfolio about?"</div>
             )}
+            {/* map through the messages and display them */}
             {messages.map((msg, i) => (
               <div key={i} style={{ margin: "8px 0", textAlign: msg.from === "user" ? "right" : "left" }}>
                 <span style={{
@@ -106,6 +116,7 @@ export const ChatbotWidget: React.FC = () => {
             ))}
             <div ref={chatEndRef} />
           </div>
+          {/* chat input form */}
           <form onSubmit={handleSend} style={{ display: "flex", borderTop: "1px solid #eee", padding: 8, background: "#fafafa" }}>
             <input
               value={input}

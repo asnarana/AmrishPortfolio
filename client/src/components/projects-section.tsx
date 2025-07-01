@@ -8,11 +8,12 @@ import { ExternalLink, Github, CheckCircle } from "lucide-react";
 import { blogArticles } from "../lib/blog-data";
 import { Link } from "wouter";
 
-
-
+// this component renders the projects section of the portfolio
 export function ProjectsSection() {
+  // state to track the currently active filter for project categories
   const [activeFilter, setActiveFilter] = useState("all");
 
+  // array of filter options for project categories
   const filters = [
     { id: "all", label: "All Projects" },
     { id: "ai-ml", label: "AI/ML" },
@@ -20,24 +21,30 @@ export function ProjectsSection() {
     { id: "data", label: "Data Analytics" },
   ];
 
+  // filter the projects based on the selected category
   const filteredProjects = projects.filter(project => 
     activeFilter === "all" || project.category.includes(activeFilter)
   );
 
   return (
+    // main section for projects with background and padding
     <section id="projects" className="py-20 bg-white dark:bg-gray-900">
+      {/* container to center content and provide responsive padding */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* section header with title and description */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
             Featured <span className="text-emerald-600">Projects</span>
           </h2>
+          {/* decorative underline below the title */}
           <div className="w-24 h-1 bg-emerald-600 mx-auto mb-6"></div>
+          {/* short description about the projects section */}
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             A showcase of my work in AI/ML, full-stack development, and data analytics
           </p>
         </div>
         
-        {/* Project Filter */}
+        {/* project filter buttons */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           {filters.map((filter) => (
             <Button
@@ -55,12 +62,14 @@ export function ProjectsSection() {
           ))}
         </div>
         
+        {/* grid of project cards */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project) => (
             <Card 
               key={project.id}
               className="project-card bg-gray-50 dark:bg-gray-800 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
             >
+              {/* project image at the top of the card */}
               <img 
                 src={project.image} 
                 alt={project.title} 
@@ -68,11 +77,13 @@ export function ProjectsSection() {
               />
               
               <CardContent className="p-6">
+                {/* project title and external links */}
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white">
                     {project.title}
                   </h3>
                   <div className="flex space-x-2">
+                    {/* link to live project if available */}
                     {project.liveUrl && (
                       <a 
                         href={project.liveUrl} 
@@ -83,6 +94,7 @@ export function ProjectsSection() {
                         <ExternalLink size={20} />
                       </a>
                     )}
+                    {/* link to github repo if available */}
                     {project.githubUrl && (
                       <a 
                         href={project.githubUrl} 
@@ -96,10 +108,12 @@ export function ProjectsSection() {
                   </div>
                 </div>
                 
+                {/* project description */}
                 <p className="text-gray-600 dark:text-gray-400 mb-4">
                   {project.description}
                 </p>
                 
+                {/* list of technologies used in the project */}
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map((tech) => (
                     <Badge 
@@ -112,6 +126,7 @@ export function ProjectsSection() {
                   ))}
                 </div>
                 
+                {/* list of achievements for the project */}
                 <div className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
                   {project.achievements.map((achievement, index) => (
                     <div key={index} className="flex items-center">
@@ -121,6 +136,7 @@ export function ProjectsSection() {
                   ))}
                 </div>
 
+                {/* related articles section, can be enabled if needed */}
                 {/* {project.relatedArticles && project.relatedArticles.length > 0 && (
                   <div className="mt-4">
                     <h3 className="font-semibold mb-2">Related Articles:</h3>

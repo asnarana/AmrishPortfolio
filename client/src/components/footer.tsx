@@ -1,6 +1,8 @@
 import { Github, Linkedin, Mail, Phone, MapPin } from "lucide-react";
 
+// this component renders the footer section of the portfolio website
 export function Footer() {
+  // array of navigation items for quick links
   const navItems = [
     { href: "#home", label: "Home" },
     { href: "#about", label: "About" },
@@ -10,6 +12,7 @@ export function Footer() {
     { href: "#contact", label: "Contact" },
   ];
 
+  // function to smoothly scroll to a section when a quick link is clicked
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
@@ -18,15 +21,20 @@ export function Footer() {
   };
 
   return (
+    // main footer element with background and padding
     <footer className="bg-gray-900 text-white py-12">
+      {/* container to center content and provide responsive padding */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* grid layout for three columns: about, quick links, and contact info */}
         <div className="grid md:grid-cols-3 gap-8">
+          {/* about section with name, description, and social links */}
           <div>
             <h3 className="text-2xl font-bold text-emerald-600 mb-4">Amrish Naranappa</h3>
             <p className="text-gray-400 mb-4">
               AI Developer & Software Engineer passionate about creating innovative solutions 
               through machine learning and full-stack development.
             </p>
+            {/* social media icons */}
             <div className="flex space-x-4">
               <a 
                 href="https://github.com/asnarana" 
@@ -53,6 +61,7 @@ export function Footer() {
             </div>
           </div>
           
+          {/* quick links section for navigation */}
           <div>
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
@@ -69,6 +78,7 @@ export function Footer() {
             </ul>
           </div>
           
+          {/* contact info section with email, phone, and location */}
           <div>
             <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
             <div className="space-y-2 text-gray-400">
@@ -88,9 +98,10 @@ export function Footer() {
           </div>
         </div>
         
+        {/* copyright and footer note */}
         <div className="border-t border-gray-700 mt-8 pt-8 text-center">
           <p className="text-gray-400">
-            © 2025 Amrish Naranappa. All rights reserved. Built with ❤️ and modern web technologies.
+            © 2025 Amrish Naranappa. All rights reserved. Built with modern web technologies.
           </p>
         </div>
       </div>
