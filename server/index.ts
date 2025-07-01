@@ -11,8 +11,7 @@ app.use(express.json());
 // Middleware to parse URL-encoded bodies (for form submissions)
 app.use(express.urlencoded({ extended: false }));
 import dotenv from "dotenv";
-dotenv.config();
-// custom logging middleware; captures req start time, path, and response status code
+dotenv.config({ path: new URL('./.env', import.meta.url) });// custom logging middleware; captures req start time, path, and response status code
 // and logs it to the console
 app.use((req, res, next) => {
   const start = Date.now();

@@ -14,8 +14,7 @@ import * as schema from "../shared/schema.js";
 import dotenv from "dotenv";
 
 // Load environment variables into process.env
-dotenv.config();
-
+dotenv.config({ path: new URL('./.env', import.meta.url) });
 // Tell Neon to use the ws (WebSocket) constructor for serverless connections
 neonConfig.webSocketConstructor = ws;
 
