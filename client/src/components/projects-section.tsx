@@ -121,7 +121,7 @@ export function ProjectsSection() {
                   ))}
                 </div>
 
-                {project.relatedArticles && project.relatedArticles.length > 0 && (
+                {/* {project.relatedArticles && project.relatedArticles.length > 0 && (
                   <div className="mt-4">
                     <h3 className="font-semibold mb-2">Related Articles:</h3>
                     <ul>
@@ -138,7 +138,7 @@ export function ProjectsSection() {
                       })}
                     </ul>
                   </div>
-                )}
+                )} */}
               </CardContent>
             </Card>
           ))}

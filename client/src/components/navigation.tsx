@@ -44,7 +44,7 @@ export function Navigation() {
                   {item.label}
                 </button>
               ))}
-              <Link to="/blog" className="nav-link text-gray-700 dark:text-gray-300 hover:text-emerald-600 transition-colors">Blogs</Link>
+              {/* <Link to="/blog" className="nav-link text-gray-700 dark:text-gray-300 hover:text-emerald-600 transition-colors">Blogs</Link> */}
             </div>
           </div>
           
