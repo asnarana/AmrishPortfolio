@@ -113,8 +113,8 @@ Handles all frontend routes by always returning index.html for unknown routes (f
  * @param app - The Express app instance
  */
 export function serveStatic(app: Express) {
-  // Resolve the path to the production build output (public directory)
-  const distPath = path.resolve(import.meta.dirname, "public");
+  // Resolve the path to the production build output (client/dist directory)
+  const distPath = path.resolve(import.meta.dirname, "..", "client", "dist");
 
   // If the build directory doesn't exist, throw an error
   if (!fs.existsSync(distPath)) {
