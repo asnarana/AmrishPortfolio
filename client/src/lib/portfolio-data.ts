@@ -77,7 +77,7 @@ export const projects: Project[] = [
       "Deployed using ECR, EC2, and RDS PostgreSQL",
       "Built ETL pipelines with pandas and SQLAlchemy"
     ],
-    githubUrl: "https://github.com/asnarana",
+    githubUrl: "https://github.com/asnarana/fermentation",
     relatedArticles: ["why-i-love-react", "choosing-typescript", "deploying-on-vercel"]
   },
   {
@@ -92,7 +92,6 @@ export const projects: Project[] = [
       "RESTful APIs for CRUD operations",
       "CI/CD pipelines with Github and Jenkins"
     ],
-    githubUrl: "https://github.com/asnarana",
     relatedArticles: [ "choosing-typescript", "deploying-on-vercel"]
   },
   {
@@ -107,7 +106,7 @@ export const projects: Project[] = [
       "Tamil/Hindi language support added",
       "Fine-tuned for Sourashtra dialect"
     ],
-    githubUrl: "https://github.com/asnarana",
+    githubUrl: "https://github.com/asnarana/ASRModels",
     relatedArticles: ["why-i-love-react", "choosing-typescript", "deploying-on-vercel"]
   },
   {
@@ -122,7 +121,7 @@ export const projects: Project[] = [
       "Email integration with Flask-Mail",
       "AJAX validation with reCAPTCHA"
     ],
-    githubUrl: "https://github.com/asnarana",
+    githubUrl: "https://github.com/asnarana/Careers-Website",
     relatedArticles: ["why-i-love-react", "choosing-typescript", "deploying-on-vercel"]
   },
   {
@@ -137,7 +136,7 @@ export const projects: Project[] = [
       "Command parsing for voice commands and web searches",
       "XML/JSON response processing with Wolfram Alpha API"
     ],
-    githubUrl: "https://github.com/asnarana",
+    githubUrl: "https://github.com/asnarana/Python-AI",
     relatedArticles: ["why-i-love-react", "choosing-typescript", "deploying-on-vercel"]
   },
   {
@@ -152,7 +151,7 @@ export const projects: Project[] = [
       "Interactive DataTables with inline editing",
       "Live toast notifications system"
     ],
-    githubUrl: "https://github.com/asnarana",
+   // githubUrl: "https://github.com/asnarana",
     relatedArticles: ["why-i-love-react", "choosing-typescript", "deploying-on-vercel"]
   },
   {
@@ -167,7 +166,7 @@ export const projects: Project[] = [
       "30% reduction in positional errors",
       "3D prediction models implemented"
     ],
-    githubUrl: "https://github.com/asnarana",
+    githubUrl: "https://github.com/asnarana/sensor-fusion-algos",
     relatedArticles: ["why-i-love-react", "choosing-typescript", "deploying-on-vercel"]
   },
 ];
