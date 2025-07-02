@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: amrish-portfolio-backend
+    env: node
+    buildCommand: npm install --legacy-peer-deps && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false
+      - key: NOTIFY_EMAIL
+        sync: false
+      - key: NOTIFY_EMAIL_PASSWORD
+        sync: false
+      - key: NOTIFY_EMAIL_TO
+        sync: false 

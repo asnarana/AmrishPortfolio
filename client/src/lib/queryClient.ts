@@ -9,13 +9,17 @@ async function throwIfResNotOk(res: Response) {
   }
 }
 
+// Import configuration
+import { getApiUrl } from "./config.js";
+
 // Generic API request function for making HTTP requests (GET, POST, etc.)
 export async function apiRequest(
   method: string,
   url: string,
   data?: unknown | undefined,
 ): Promise<Response> {
-  const res = await fetch(url, {
+  const fullUrl = getApiUrl(url);
+  const res = await fetch(fullUrl, {
     method,
     headers: data ? { "Content-Type": "application/json" } : {},
     body: data ? JSON.stringify(data) : undefined,
@@ -36,7 +40,9 @@ export const getQueryFn: <T>(options: {
   ({ on401: unauthorizedBehavior }) =>
   async ({ queryKey }) => {
     // Fetch data from the URL (first element of queryKey)
-    const res = await fetch(queryKey[0] as string, {
+    const url = queryKey[0] as string;
+    const fullUrl = url.startsWith('http') ? url : getApiUrl(url);
+    const res = await fetch(fullUrl, {
       credentials: "include",
     });
 
