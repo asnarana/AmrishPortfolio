@@ -9,8 +9,9 @@ import cors from "cors";
 
 
 const app = express();
+//allows requests from the frontend( github pages domain)
 app.use(cors({
-  origin: "https://asnarana.github.io",
+  origin: "https://asnarana.github.io/AmrishPortfolio/",
   credentials: true,
 }));
 // Middleware to parse incoming JSON payloads
