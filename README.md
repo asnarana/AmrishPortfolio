@@ -1,7 +1,7 @@
 # AmrishPortfolio
 
-link to portfolio hosted by GithubPages : https://asnarana.github.io/AmrishPortfolio/ 
-(Backend deployment still in the works)
+Link to portfolio hosted by GithubPages : https://asnarana.github.io/AmrishPortfolio/ 
+(Backend Deployment is something I'm still working on.)
 ## Overview
 
 This is a  portfolio application showcasing my professional profile. The application is built using React with TypeScript for the frontend, Express.js for the backend, and designed to be deployed with PostgreSQL database integration. The portfolio features a responsive design with dark/light theme support, contact form functionality, and comprehensive sections for skills, projects, and experience.
@@ -100,22 +100,3 @@ The application follows a monorepo structure with clear separation between clien
 - **Backend**: Stateless Express server enables horizontal scaling
 - **Caching**: TanStack Query provides client-side caching
 
-## Changelog
-
-```
-Changelog:
-- June 30, 2025. Initial setup
-- June 30, 2025. Expanded backend with comprehensive CMS functionality:
-  * Added PostgreSQL database with full schema
-  * Created database tables for projects, blog posts, experiences, skills
-  * Implemented complete CRUD operations for all content types
-  * Added RESTful API endpoints for content management
-  * Updated technical expertise section with databases category
-  * Applied user-requested skill level adjustments (Java: 95%, Python: 85%)
-```
-
-## User Preferences
-
-```
-Preferred communication style: Simple, everyday language.
-```
