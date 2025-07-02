@@ -1,6 +1,6 @@
 // Configuration for API base URL
 export const API_BASE_URL = import.meta.env.PROD 
-  ? 'https://amrish-portfoliobackend.onrender.com/' // Production backend URL
+  ? 'https://amrish-portfoliobackend.onrender.com' // Production backend URL
   : ''; // Development - use relative URLs
 
 // Helper function to get full API URL
