@@ -334,7 +334,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.get("/api/resume/download", async (req, res) => {
     try {
       // Build the path to the resume PDF
-      const resumePath = join(process.cwd(), 'attached_assets', 'amrishdec25 (2)_1751297578613.pdf');
+      const resumePath = join(process.cwd(), 'server', 'public', 'amrishdec25 (2)_1751297578613.pdf');
       // Read the PDF file
       const pdfContent = readFileSync(resumePath);
       // Set headers for file download
