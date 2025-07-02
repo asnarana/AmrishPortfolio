@@ -5,11 +5,19 @@ import { registerRoutes } from "./routes.js";
 // import vite.js for setting up vite and serving static files
 import { setupVite, serveStatic, log } from "./vite.js";
 
+import cors from "cors";
+
+
 const app = express();
+app.use(cors({
+  origin: "https://asnarana.github.io",
+  credentials: true,
+}));
 // Middleware to parse incoming JSON payloads
 app.use(express.json());
 // Middleware to parse URL-encoded bodies (for form submissions)
 app.use(express.urlencoded({ extended: false }));
+
 import dotenv from "dotenv";
 dotenv.config({ path: new URL('./.env', import.meta.url) });// custom logging middleware; captures req start time, path, and response status code
 // and logs it to the console
