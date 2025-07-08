@@ -76,8 +76,9 @@ export function ProjectsSection() {
                   <video
                     src={project.video}
                     controls
-                    className="w-full h-48 object-cover rounded-t"
+                    className="w-full h-48 object-contain rounded-t bg-black"
                     poster={project.poster || project.image}
+                    preload="metadata"
                   />
                 </div>
               ) : (
