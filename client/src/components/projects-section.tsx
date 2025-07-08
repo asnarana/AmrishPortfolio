@@ -69,12 +69,24 @@ export function ProjectsSection() {
               key={project.id}
               className="project-card bg-gray-50 dark:bg-gray-800 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
             >
-              {/* project image at the top of the card */}
-              <img 
-                src={project.image} 
-                alt={project.title} 
-                className="w-full h-48 object-cover"
-              />
+              {/* project video demo or image at the top of the card */}
+              {project.video ? (
+                <div className="relative">
+                  <span className="absolute top-2 left-2 z-10 bg-emerald-600 text-white text-xs font-semibold px-2 py-1 rounded shadow">Demo</span>
+                  <video
+                    src={project.video}
+                    controls
+                    className="w-full h-48 object-cover rounded-t"
+                    poster={project.poster || project.image}
+                  />
+                </div>
+              ) : (
+                <img 
+                  src={project.poster || project.image} 
+                  alt={project.title} 
+                  className="w-full h-48 object-cover"
+                />
+              )}
               
               <CardContent className="p-6">
                 {/* project title and external links */}

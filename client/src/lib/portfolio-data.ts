@@ -17,6 +17,8 @@ export interface Project {
   liveUrl?: string; // Optional: link to the live project
   githubUrl?: string; // Optional: link to the GitHub repo
   relatedArticles?: string[]; // Optional: slugs of related blog articles
+  video?: string; // Optional: path to the project's demo video
+  poster?: string; // Optional: custom poster image for the video
 }
 
 // Define the Experience interface for representing a work or research experience
@@ -78,7 +80,9 @@ export const projects: Project[] = [
       "Built ETL pipelines with pandas and SQLAlchemy"
     ],
     githubUrl: "https://github.com/asnarana/fermentation",
-    relatedArticles: ["why-i-love-react", "choosing-typescript", "deploying-on-vercel"]
+    relatedArticles: ["why-i-love-react", "choosing-typescript", "deploying-on-vercel"],
+    video: "/btechdemomp4.mp4",
+    poster: "fermss.jpg"
   },
   {
     id: "wolf-cafe",
@@ -107,7 +111,8 @@ export const projects: Project[] = [
       "Fine-tuned for Sourashtra dialect"
     ],
     githubUrl: "https://github.com/asnarana/ASRModels",
-    relatedArticles: ["why-i-love-react", "choosing-typescript", "deploying-on-vercel"]
+    relatedArticles: ["why-i-love-react", "choosing-typescript", "deploying-on-vercel"],
+    poster: "/asrss.png"
   },
   {
     id: "student-careers",
@@ -122,7 +127,9 @@ export const projects: Project[] = [
       "AJAX validation with reCAPTCHA"
     ],
     githubUrl: "https://github.com/asnarana/Careers-Website",
-    relatedArticles: ["why-i-love-react", "choosing-typescript", "deploying-on-vercel"]
+    relatedArticles: ["why-i-love-react", "choosing-typescript", "deploying-on-vercel"],
+    video: "careersdashboarddemo.mp4",
+    poster: "careersss.jpg"
   },
   {
     id: "speech-recognition-ai",
@@ -137,23 +144,25 @@ export const projects: Project[] = [
       "XML/JSON response processing with Wolfram Alpha API"
     ],
     githubUrl: "https://github.com/asnarana/Python-AI",
-    relatedArticles: ["why-i-love-react", "choosing-typescript", "deploying-on-vercel"]
+    relatedArticles: ["why-i-love-react", "choosing-typescript", "deploying-on-vercel"],
+    video: "/pythonai.mp4",
+    poster: "aiss.jpg"
   },
-  {
-    id: "mars-reporting",
-    title: "MARS Reporting System",
-    description: "Enhanced Medullus Advanced Reporting System with PHP/MySQL backend, featuring interactive DataTables, real-time project tracking for 200+ projects, and live status notifications.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
-    technologies: ["PHP", "MySQL", "jQuery", "CodeIgniter", "AJAX"],
-    category: ["fullstack", "data"],
-    achievements: [
-      "Real-time tracking of 200+ projects",
-      "Interactive DataTables with inline editing",
-      "Live toast notifications system"
-    ],
-   // githubUrl: "https://github.com/asnarana",
-    relatedArticles: ["why-i-love-react", "choosing-typescript", "deploying-on-vercel"]
-  },
+  // {
+  //   id: "mars-reporting",
+  //   title: "MARS Reporting System",
+  //   description: "Enhanced Medullus Advanced Reporting System with PHP/MySQL backend, featuring interactive DataTables, real-time project tracking for 200+ projects, and live status notifications.",
+  //   image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
+  //   technologies: ["PHP", "MySQL", "jQuery", "CodeIgniter", "AJAX"],
+  //   category: ["fullstack", "data"],
+  //   achievements: [
+  //     "Real-time tracking of 200+ projects",
+  //     "Interactive DataTables with inline editing",
+  //     "Live toast notifications system"
+  //   ],
+  //  // githubUrl: "https://github.com/asnarana",
+  //   relatedArticles: ["why-i-love-react", "choosing-typescript", "deploying-on-vercel"]
+  // },
   {
     id: "sensor-fusion",
     title: "Sensor Fusion Research",
@@ -167,7 +176,9 @@ export const projects: Project[] = [
       "3D prediction models implemented"
     ],
     githubUrl: "https://github.com/asnarana/sensor-fusion-algos",
-    relatedArticles: ["why-i-love-react", "choosing-typescript", "deploying-on-vercel"]
+    relatedArticles: ["why-i-love-react", "choosing-typescript", "deploying-on-vercel"],
+    poster: "/sensorss.png"
+   // video: "/blogs.mp4"
   },
   {
     id: "article-editor",
@@ -195,7 +206,9 @@ export const projects: Project[] = [
       "why-i-love-react",
       "choosing-typescript",
       "deploying-on-vercel"
-    ]
+    ],
+    video: "/blogs.mp4",
+    poster: "blogss.jpg"
   },
 ];
 // list of experiences each with details like id, title, company, location, duration, description, and technologies
