@@ -169,6 +169,34 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/asnarana/sensor-fusion-algos",
     relatedArticles: ["why-i-love-react", "choosing-typescript", "deploying-on-vercel"]
   },
+  {
+    id: "article-editor",
+    title: "Article Editor",
+    description: "A full-stack CMS that lets users write, edit, and manage markdown-formatted articles. Built with Node.js, Express.js, MongoDB (via Mongoose), and EJS templates, featuring auto-generated URL slugs, timestamps, and a responsive Bootstrap UI.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
+    technologies: [
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Mongoose",
+      "EJS",
+      "Marked.js",
+      "Slugify"
+      
+    ],
+    category: ["fullstack", "content-management"],
+    achievements: [
+      "CRUD interface with markdown support",
+      "Automatic URL-friendly slug generation",
+      "Responsive UI built with Bootstrap"
+    ],
+    githubUrl: "https://github.com/asnarana/Article-Editor",
+    relatedArticles: [
+      "why-i-love-react",
+      "choosing-typescript",
+      "deploying-on-vercel"
+    ]
+  },
 ];
 // list of experiences each with details like id, title, company, location, duration, description, and technologies
 export const experiences: Experience[] = [

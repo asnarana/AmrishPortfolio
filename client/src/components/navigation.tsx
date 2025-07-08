@@ -55,7 +55,7 @@ export function Navigation() {
                 </button>
               ))}
               {/* blog link can be enabled if needed */}
-              {/* <Link to="/blog" className="nav-link text-gray-700 dark:text-gray-300 hover:text-emerald-600 transition-colors">Blogs</Link> */}
+              <Link to="/blog" className="nav-link text-gray-700 dark:text-gray-300 hover:text-emerald-600 transition-colors">Blogs</Link>
             </div>
           </div>
           
