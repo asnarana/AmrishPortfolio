@@ -81,8 +81,8 @@ export const projects: Project[] = [
     ],
     githubUrl: "https://github.com/asnarana/fermentation",
     relatedArticles: ["why-i-love-react", "choosing-typescript", "deploying-on-vercel"],
-    video: "/btechdemomp4.mp4",
-    poster: "fermss.jpg"
+    video: import.meta.env.BASE_URL + 'btechdemomp4.mp4',
+    poster: import.meta.env.BASE_URL + 'fermss.jpg'
   },
   {
     id: "wolf-cafe",
@@ -112,7 +112,7 @@ export const projects: Project[] = [
     ],
     githubUrl: "https://github.com/asnarana/ASRModels",
     relatedArticles: ["why-i-love-react", "choosing-typescript", "deploying-on-vercel"],
-    poster: "/asrss.png"
+    poster: import.meta.env.BASE_URL + 'asrss.png'
   },
   {
     id: "student-careers",
@@ -128,8 +128,8 @@ export const projects: Project[] = [
     ],
     githubUrl: "https://github.com/asnarana/Careers-Website",
     relatedArticles: ["why-i-love-react", "choosing-typescript", "deploying-on-vercel"],
-    video: "careersdashboarddemo.mp4",
-    poster: "careersss.jpg"
+    video: import.meta.env.BASE_URL + 'careersdashboarddemo.mp4',
+    poster: import.meta.env.BASE_URL + 'careersss.jpg'
   },
   {
     id: "speech-recognition-ai",
@@ -145,8 +145,8 @@ export const projects: Project[] = [
     ],
     githubUrl: "https://github.com/asnarana/Python-AI",
     relatedArticles: ["why-i-love-react", "choosing-typescript", "deploying-on-vercel"],
-    video: "/pythonai.mp4",
-    poster: "aiss.jpg"
+    video: import.meta.env.BASE_URL + 'pythonai.mp4',
+    poster: import.meta.env.BASE_URL + 'aiss.jpg'
   },
   // {
   //   id: "mars-reporting",
@@ -177,7 +177,7 @@ export const projects: Project[] = [
     ],
     githubUrl: "https://github.com/asnarana/sensor-fusion-algos",
     relatedArticles: ["why-i-love-react", "choosing-typescript", "deploying-on-vercel"],
-    poster: "/sensorss.png"
+    poster: import.meta.env.BASE_URL + 'sensorss.png'
    // video: "/blogs.mp4"
   },
   {
@@ -207,8 +207,8 @@ export const projects: Project[] = [
       "choosing-typescript",
       "deploying-on-vercel"
     ],
-    video: "/blogs.mp4",
-    poster: "blogss.jpg"
+    video: import.meta.env.BASE_URL + 'blogs.mp4',
+    poster: import.meta.env.BASE_URL + 'blogss.jpg'
   },
 ];
 // list of experiences each with details like id, title, company, location, duration, description, and technologies

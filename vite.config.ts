@@ -11,7 +11,7 @@ export default defineConfig({
   // this will load by js and css files in the dist folder
 
 
-  base: "/AmrishPortfolio",
+  base: '/AmrishPortfolio/',
   plugins: [
     //react plugin - fast refresh and jsx support 
     react(),
