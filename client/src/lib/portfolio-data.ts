@@ -88,7 +88,7 @@ export const projects: Project[] = [
     id: "wolf-cafe",
     title: "Wolf Cafe System",
     description: "Developed a comprehensive cafe management system with React frontend and Spring Boot backend, featuring JWT authentication, role-based access control, and automated CI/CD pipelines.",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
+    image: import.meta.env.BASE_URL + 'cafess.png',
     technologies: ["Java", "React", "SpringBoot", "MySQL", "JWT"],
     category: ["fullstack"],
     achievements: [
