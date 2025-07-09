@@ -11,7 +11,6 @@ const FAQS = [
   { q: "Are you open to freelance or contract work?", a: "Yes, I'm open to freelance and contract opportunities. Please reach out via the contact form." },
   { q: "Where are you located?", a: "I'm based in Morrisvile,NC,United States." },
   { q: "What is your educational background?", a: "I have a background in Computer Science and continuous self-learning through real-world projects." },
-  { q: "How can I download your resume?", a: "You can download my resume using the link in the Contact section." },
   { q: "What is your preferred tech stack?", a: "I enjoy working with React, TypeScript, Node.js, PostgreSQL, and Tailwind CSS." },
   { q: "How quickly do you respond to messages?", a: "I usually respond within 24-48 hours." },
   { q: "Do you contribute to open source?", a: "Yes, I enjoy contributing to open-source projects and collaborating with the community." },

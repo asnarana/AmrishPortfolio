@@ -67,30 +67,6 @@ export function ContactSection() {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
-  // Handle resume download (triggers a file download from the backend)
-  const handleResumeDownload = async () => {
-    try {
-      // Create a temporary link and trigger click to download
-      const link = document.createElement('a');
-      link.href = '/api/resume/download';
-      link.download = 'Amrish-Naranappa-Resume.pdf';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      
-      toast({
-        title: "Resume downloading",
-        description: "Your resume download has started.",
-      });
-    } catch (error) {
-      toast({
-        title: "Download failed",
-        description: "Unable to download resume. Please try again.",
-        variant: "destructive",
-      });
-    }
-  };
-
   return (
     <section id="contact" className="py-20 bg-white dark:bg-gray-900">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -277,25 +253,6 @@ export function ContactSection() {
                 </a>
               </div>
             </div>
-            
-            {/* Resume Download Card */}
-            <Card className="bg-gray-50 dark:bg-gray-800">
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
-                  Resume
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-4">
-                  Download my latest resume to learn more about my experience and qualifications.
-                </p>
-                <Button
-                  onClick={handleResumeDownload}
-                  className="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 px-6 rounded-lg transition-all transform hover:scale-105 shadow-lg"
-                >
-                  <Download className="mr-2 h-4 w-4" />
-                  Download Resume
-                </Button>
-              </CardContent>
-            </Card>
             
             {/* Decorative/branding image */}
             <img 
