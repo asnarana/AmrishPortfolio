@@ -1,7 +1,6 @@
 # AmrishPortfolio
 
 Link to portfolio hosted by GithubPages : https://asnarana.github.io/AmrishPortfolio/ 
-(To Do: Resume download feature)
 
 ## Overview
 
