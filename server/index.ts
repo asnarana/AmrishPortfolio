@@ -4,7 +4,7 @@ import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes.js";
 // import vite.js for setting up vite and serving static files
 import { setupVite, serveStatic, log } from "./vite.js";
-
+//import cors for cross-origin resource sharing
 import cors from "cors";
 
 
@@ -14,9 +14,9 @@ app.use(cors({
   origin: "https://asnarana.github.io",
   credentials: true,
 }));
-// Middleware to parse incoming JSON payloads
+// middleware to parse incoming JSON payloads
 app.use(express.json());
-// Middleware to parse URL-encoded bodies (for form submissions)
+// middleware to parse URL-encoded bodies (for form submissions)
 app.use(express.urlencoded({ extended: false }));
 
 import dotenv from "dotenv";
@@ -50,14 +50,13 @@ app.use((req, res, next) => {
     }
   });
 
-  next(); // continue to the next middleware
+  next(); 
 });
 // register all the routes
 // immediately invoke the async function to register routes and start the server
 (async () => {
-    // Register all your API/project routes; returns an HTTP server instance
   const server = await registerRoutes(app);
-  // centralized error handling middleware ; comes after routes)
+  // centralized error handling middleware
   app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
     const status = err.status || err.statusCode || 500;
     const message = err.message || "Internal Server Error";
@@ -75,8 +74,7 @@ app.use((req, res, next) => {
   } else {
     serveStatic(app);
   }
-
-  // Use PORT from environment variable (for Render) or default to 5000
+  //setting up the port and host( for host, if not specified, it will default to localhost)
   const port = parseInt(process.env.PORT || '5000');
   const host = process.env.NODE_ENV === 'production' ? '0.0.0.0' : 'localhost';
   

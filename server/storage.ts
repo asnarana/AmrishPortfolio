@@ -31,11 +31,11 @@ export interface IStorage {
   getUserByUsername(username: string): Promise<User | undefined>;
   createUser(user: InsertUser): Promise<User>;
   
-  // Contact Messages
+  //  Messages
   createContactMessage(message: InsertContactMessage): Promise<ContactMessage>;
   getContactMessages(): Promise<ContactMessage[]>;
   
-  // Projects
+  // projects
   createProject(project: InsertProject): Promise<Project>;
   getProjects(): Promise<Project[]>;
   getFeaturedProjects(): Promise<Project[]>;
@@ -43,7 +43,7 @@ export interface IStorage {
   updateProject(id: number, updates: Partial<InsertProject>): Promise<Project | undefined>;
   deleteProject(id: number): Promise<boolean>;
   
-  // Blog Posts
+  // blog Posts
   createBlogPost(post: InsertBlogPost): Promise<BlogPost>;
   getBlogPosts(): Promise<BlogPost[]>;
   getPublishedBlogPosts(): Promise<BlogPost[]>;
@@ -52,14 +52,14 @@ export interface IStorage {
   updateBlogPost(id: number, updates: Partial<InsertBlogPost>): Promise<BlogPost | undefined>;
   deleteBlogPost(id: number): Promise<boolean>;
   
-  // Experiences
+  // experiences
   createExperience(experience: InsertExperience): Promise<Experience>;
   getExperiences(): Promise<Experience[]>;
   getExperience(id: number): Promise<Experience | undefined>;
   updateExperience(id: number, updates: Partial<InsertExperience>): Promise<Experience | undefined>;
   deleteExperience(id: number): Promise<boolean>;
   
-  // Skills
+  // skills
   createSkill(skill: InsertSkill): Promise<Skill>;
   getSkills(): Promise<Skill[]>;
   getFeaturedSkills(): Promise<Skill[]>;
@@ -283,5 +283,5 @@ export class DatabaseStorage implements IStorage {
   }
 }
 
-// Export a singleton instance of DatabaseStorage for use throughout your app
+// singleton instance of DatabaseStorage for use throughout  the app
 export const storage = new DatabaseStorage();

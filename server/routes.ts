@@ -1,4 +1,4 @@
-// Import types and libraries for server, routing, validation, file handling, and email
+//  types and libraries for server, routing, validation, file handling, and email
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage.js"; // custom storage module for db operations
@@ -19,7 +19,6 @@ import nodemailer from "nodemailer"; // nodemailer for email handling
 // it takes an Express app as an argument and returns an HTTP server
 // sets up all api enpdoints, validates incoming data with zod, handles db operations, and serves static files
 // sends email notifications for contact form submissions
-// serves the resume PDF for download
 
 // Main function to register all routes and return the HTTP server
 export async function registerRoutes(app: Express): Promise<Server> {
@@ -32,8 +31,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const validatedData = insertContactMessageSchema.parse(req.body);
       // Save the message to the database (or storage)
       const message = await storage.createContactMessage(validatedData);
-      
-      // Send email notification via Nodemailer, this func not working though as expected( TODO: fix this)
+      //sending email notification via nodemailer
       const transporter = nodemailer.createTransport({
         service: "gmail",
         auth: {
@@ -41,7 +39,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
           pass: process.env.NOTIFY_EMAIL_PASSWORD,
         },
       });
-
+      // sending respones to me ( amrish.naranappa@gmail.com)
       await transporter.sendMail({
         from: `"Portfolio Contact" <${process.env.NOTIFY_EMAIL}>`,
         to: process.env.NOTIFY_EMAIL_TO,
@@ -53,14 +51,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
           Message: ${validatedData.message}
         `,
       });
-
-      // Log the message for debugging
       console.log("New contact message:", message);
-
-      // Respond to the client
       res.json({ success: true, message: "Message sent successfully!" });
     } catch (error) {
-      // Handle validation errors
+      //  validation errors
       if (error instanceof z.ZodError) {
         res.status(400).json({ 
           success: false, 
@@ -76,8 +70,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
     }
   });
-
-  // Fetch all contact messages (admin use) to do later 
+//getting all messages
   app.get("/api/contact-messages", async (req, res) => {
     try {
       const messages = await storage.getContactMessages();
@@ -90,9 +83,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // === PROJECTS ROUTES ===
+  // project routes
 
-  // Get all projects (optionally filter for featured)
+  // get all projects (optionally filter for featured)
   app.get("/api/projects", async (req, res) => {
     try {
       const featured = req.query.featured === 'true';
@@ -105,7 +98,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Get a single project by ID
+  // get a single project by ID
   app.get("/api/projects/:id", async (req, res) => {
     try {
       const id = parseInt(req.params.id);
@@ -119,9 +112,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Create a new project
+  // create a new project
   app.post("/api/projects", async (req, res) => {
     try {
+      // validating the data
       const validatedData = insertProjectSchema.parse(req.body);
       const project = await storage.createProject(validatedData);
       res.status(201).json(project);
@@ -134,7 +128,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Update an existing project
+  // update an existing project
   app.put("/api/projects/:id", async (req, res) => {
     try {
       const id = parseInt(req.params.id);
@@ -153,7 +147,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Delete a project
+  // delete a project
   app.delete("/api/projects/:id", async (req, res) => {
     try {
       const id = parseInt(req.params.id);
@@ -328,31 +322,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // === RESUME DOWNLOAD ROUTE ===
-
-  // Serve the resume PDF for download
-  app.get("/api/resume/download", async (req, res) => {
-    try {
-      // Build the path to the resume PDF
-      const resumePath = join(process.cwd(), 'server', 'public', 'amrishdec25 (2)_1751297578613.pdf');
-      // Read the PDF file
-      const pdfContent = readFileSync(resumePath);
-      // Set headers for file download
-      res.setHeader('Content-Type', 'application/pdf');
-      res.setHeader('Content-Disposition', 'attachment; filename=\"Amrish-Naranappa-Resume.pdf\"');
-      res.setHeader('Content-Length', pdfContent.length);
-      // Send the file
-      res.send(pdfContent);
-    } catch (error) {
-      console.error('Resume download error:', error);
-      res.status(500).json({ 
-        success: false, 
-        message: "Failed to download resume" 
-      });
-    }
-  });
-
-  // Create and return the HTTP server
+  // create and return the HTTP server
   const httpServer = createServer(app);
   return httpServer;
 }

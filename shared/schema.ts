@@ -116,11 +116,7 @@ export const insertSkillSchema = createInsertSchema(skills).omit({
 });
 
 // export ts types for inputs and query results 
-// InsertUser: A TypeScript type inferred from your Zod validation schema (insertUserSchema).
-//Purpose: Represents the shape of data you expect when inserting a new user (e.g., from a form or API).
-//Apply to schema.ts
-//User: A TypeScript type inferred from your Drizzle ORM table definition (users).
-//Purpose: Represents a user record as it comes from the database (including all fields, possibly with defaults and generated values).
+
 
 export type InsertUser = z.infer<typeof insertUserSchema>;
 export type User = typeof users.$inferSelect;

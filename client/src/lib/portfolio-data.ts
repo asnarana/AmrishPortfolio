@@ -1,11 +1,11 @@
-// Define the Skill interface for representing a skill with a name, level, and category
+//  the Skill interface for representing a skill with a name, level, and category
 export interface Skill {
   name: string;
   level: number;
   category: 'languages' | 'frameworks' | 'ai-ml' | 'cloud-devops' | 'databases';
 }
 
-// Define the Project interface for representing a project and its properties
+//  the Project interface for representing a project and its properties
 export interface Project {
   id: string;
   title: string;
@@ -21,7 +21,7 @@ export interface Project {
   poster?: string; // Optional: custom poster image for the video
 }
 
-// Define the Experience interface for representing a work or research experience
+//  the Experience interface for representing a work or research experience
 export interface Experience {
   id: string;
   title: string;

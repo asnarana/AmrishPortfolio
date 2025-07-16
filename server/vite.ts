@@ -5,11 +5,8 @@ import fs from "fs";
 import path from "path";
 // Import Vite's server creation and logger utilities
 import { createServer as createViteServer, createLogger } from "vite";
-// Import Node.js HTTP Server type
 import { type Server } from "http";
-// Import my  Vite config (for custom settings)
 import viteConfig from "../vite.config.js";
-// Import nanoid for generating unique cache-busting query strings
 import { nanoid } from "nanoid";
 
 // Create a Vite logger instance for consistent logging
@@ -64,13 +61,13 @@ export async function setupVite(app: Express, server: Server) {
   //   server: serverOptions,
   //   appType: "custom",
   // });
-  // Create a Vite dev server in middleware mode, with custom error handling
+  // create a Vite dev server in middleware mode, with custom error handling
   const vite = await createViteServer({
     ...viteConfig,
     configFile: false, // says dont look for a vite.config.ts file
     customLogger: { ...viteLogger, error: (msg, options) => { viteLogger.error(msg, options); process.exit(1); }, }, // custom logger for vite
-    server: { middlewareMode: true, hmr: { server }}, // middleware mode for vite
-    appType: "custom", // custom app type for vite
+    server: { middlewareMode: true, hmr: { server }}, 
+    appType: "custom", 
   });
   // app uses vites middlewares to handle frontend requests 
   app.use(vite.middlewares);
@@ -113,7 +110,7 @@ Handles all frontend routes by always returning index.html for unknown routes (f
  * @param app - The Express app instance
  */
 export function serveStatic(app: Express) {
-  // Resolve the path to the production build output (client/dist directory)
+  //  the path to the production build output (client/dist directory)
   const distPath = path.resolve(import.meta.dirname, "..", "client", "dist");
 
   // If the build directory doesn't exist, throw an error
@@ -122,11 +119,9 @@ export function serveStatic(app: Express) {
       `Could not find the build directory: ${distPath}, make sure to build the client first`,
     );
   }
-
-  // Serve static files from the build directory
+  //  static files from the build directory
   app.use(express.static(distPath));
-
-  // Fallback: serve index.html for any unmatched route (for SPA routing)
+  // fallback: serve index.html for any unmatched route 
   app.use("*", (_req, res) => {
     res.sendFile(path.resolve(distPath, "index.html"));
   });
