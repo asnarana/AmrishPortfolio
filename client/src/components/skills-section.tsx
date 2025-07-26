@@ -61,9 +61,8 @@ export function SkillsSection() {
 
   // list of additional technologies to display as badges
   const additionalTechnologies = [
-    "C", "R", "PHP", "HTML/CSS", "Node.js", "Prophet", "Kubernetes", 
-    "Jupyter", "Pandas", "NumPy", "Plotly", "Power BI", "Linux", 
-    "Postman", "Google Cloud Console", "Jira", "JUnit", "Hibernate"
+    "C", "PHP", "Node.js", "Kubernetes", "Pandas", "NumPy", "Plotly", "Power BI", "Linux", 
+    "Postman", "Google Cloud Console", "JUnit", "Hibernate"
   ];
 
   return (
@@ -79,9 +78,7 @@ export function SkillsSection() {
           {/* decorative underline below the title */}
           <div className="w-24 h-1 bg-emerald-600 mx-auto mb-6"></div>
           {/* short description about the skills section */}
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            A comprehensive toolkit spanning from machine learning frameworks to cloud deployment technologies
-          </p>
+          
         </div>
         
         {/* grid of skill category cards */}

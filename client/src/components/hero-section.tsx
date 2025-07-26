@@ -13,11 +13,9 @@ export function HeroSection() {
 
   // array of roles to cycle through in the typing animation
   const roles = [
-    "AI Developer",
-    "Software Engineer",
-    "Machine Learning Engineer",
-    "Full-Stack Developer",
-    "Data Scientist"
+    "Aspiring Software Engineer",
+    "Data Curious",
+    "Full-Stack Learner",
   ];
 
   // effect to handle the typing and deleting animation for the roles
@@ -93,8 +91,7 @@ export function HeroSection() {
         
         {/* short description about the person */}
         <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-12 animate-slide-up" style={{ animationDelay: "0.4s" }}>
-          AI Developer & Software Engineer passionate about machine learning, full-stack development, and creating innovative solutions. 
-          Currently pursuing Computer Science with AI concentration at NC State University.
+        I’m a 4th year Computer Science student at North Carolina State University with a focus on AI. I’ve spent a lot of time building with AI tools, working on software projects, and playing around with modern tech—whether that’s web development, cloud stuff, or anything else that seems interesting. I’m always up for learning something new and figuring out how to actually make things work in the real world.
         </p>
         
         {/* call-to-action buttons for projects and contact */}

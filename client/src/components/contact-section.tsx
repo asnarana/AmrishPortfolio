@@ -254,12 +254,7 @@ export function ContactSection() {
               </div>
             </div>
             
-            {/* Decorative/branding image */}
-            <img 
-              src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400" 
-              alt="Modern tech startup office environment" 
-              className="rounded-xl shadow-lg w-full object-cover"
-            />
+            
           </div>
         </div>
       </div>

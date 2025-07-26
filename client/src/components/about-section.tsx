@@ -15,19 +15,29 @@ export function AboutSection() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-              AI Developer & Full-Stack Engineer
+            From Curiosity to Code
+
+
             </h3>
             
             <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-              I'm a passionate Computer Science student at North Carolina State University with a concentration in 
-              Artificial Intelligence and a minor in Statistics. My journey in technology is driven by a deep fascination 
+              My journey in technology is driven by a deep fascination 
               with machine learning, data analytics, and creating intelligent systems that solve real-world problems.
             </p>
             
             <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
               With experience spanning from building ASR models and fine-tuning Whisper transformers to developing 
-              full-stack web applications, I bridge the gap between cutting-edge AI research and practical software solutions. 
+              full-stack web applications, I have tried to bridge the gap between cutting-edge AI research and practical software solutions. 
               My work has involved everything from sensor fusion algorithms to scalable cloud deployments on AWS.
+            </p>
+
+            <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+              Outside of Tech and School
+            </h3>
+            <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+            When I’m not coding or working on school projects, I try to stay active and keep things fun. I’m always up for a game of basketball or a swim whenever I get the chance. I’m also a huge fan of movies—my family has a tradition of Friday night movie nights, which is honestly one of my favorite ways to unwind and recharge after a busy week. Spending time with friends and enjoying good food always makes life better, and these moments away from school and work help me relax and keep everything in balance.
+
+
             </p>
             
             <div className="grid grid-cols-2 gap-6 mt-8">
