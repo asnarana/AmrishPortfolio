@@ -82,11 +82,21 @@ export function ProjectsSection() {
                   />
                 </div>
               ) : (
-                <img 
-                  src={project.poster || project.image} 
-                  alt={project.title} 
-                  className="w-full h-48 object-cover"
-                />
+                project.id === "iot-monitoring" ? (
+                  <div className="w-full h-48 bg-gray-100 dark:bg-gray-700 flex items-center justify-center p-4">
+                    <img 
+                      src={project.poster || project.image} 
+                      alt={project.title} 
+                      className="max-w-full max-h-full object-contain"
+                    />
+                  </div>
+                ) : (
+                  <img 
+                    src={project.poster || project.image} 
+                    alt={project.title} 
+                    className="w-full h-48 object-cover"
+                  />
+                )
               )}
               
               <CardContent className="p-6">

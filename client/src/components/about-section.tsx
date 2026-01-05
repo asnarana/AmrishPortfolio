@@ -35,9 +35,7 @@ export function AboutSection() {
               Outside of Tech and School
             </h3>
             <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-            When I’m not coding or working on school projects, I try to stay active and keep things fun. I’m always up for a game of basketball or a swim whenever I get the chance. I’m also a huge fan of movies—my family has a tradition of Friday night movie nights, which is honestly one of my favorite ways to unwind and recharge after a busy week. Spending time with friends and enjoying good food always makes life better, and these moments away from school and work help me relax and keep everything in balance.
-
-
+            When I'm not coding or working on school projects, I try to stay active and keep things fun. I'm always up for a game of basketball or a swim whenever I get the chance. I'm also a huge fan of movies, my family has a tradition of Friday night movie nights, which is honestly one of my favorite ways to unwind and recharge after a busy week. Spending time with friends and enjoying good food always makes life better, and these moments away from school and work help me relax and keep everything in balance. I also love collecting seashells whenever I get to a new beach, there's something peaceful about walking along the shore and finding those little treasures.
             </p>
             
             <div className="grid grid-cols-2 gap-6 mt-8">

@@ -68,6 +68,24 @@ export const skills: Skill[] = [
 //list of projects each with details like id, title, description, image, technologies, category, achievements, githubUrl, and relatedArticles
 export const projects: Project[] = [
   {
+    id: "iot-monitoring",
+    title: "IoT Monitoring System",
+    description: "Architected a scalable IoT simulation platform for device telemetry with real-time fault detection and live data streaming across distributed instances, supporting 1000+ concurrent devices for MANN+HUMMEL.",
+    image: import.meta.env.BASE_URL + 'mann.png',
+    technologies: ["Elixir", "Phoenix LiveView", "PostgreSQL", "Docker", "MQTT", "Phoenix PubSub"],
+    category: ["fullstack", "iot"],
+    achievements: [
+      "Scalable platform supporting 1000+ concurrent devices",
+      "Real-time visualization with admin and control interfaces",
+      "Achieved 86% test coverage with <10% CPU/RAM usage"
+    ],
+    relatedArticles: [
+      "why-i-love-react",
+      "choosing-typescript",
+      "deploying-on-vercel"
+    ]
+  },
+  {
     id: "ecoli-analytics",
     title: "E. coli Fermentation Analytics",
     description: "Built a comprehensive analytics platform for 300L E. coli batch fermentation, featuring Plotly Dash visualizations, Power BI integration, and Prophet forecasting models deployed on AWS infrastructure.",
@@ -214,11 +232,25 @@ export const projects: Project[] = [
 // list of experiences each with details like id, title, company, location, duration, description, and technologies
 export const experiences: Experience[] = [
   {
+    id: "ncs-btec",
+    title: "Data Engineer Intern",
+    company: "NCSU Golden LEAF Biomanufacturing Training and Education Center (BTEC)",
+    location: "Raleigh, North Carolina",
+    duration: "Sep 2024 – Jan 2025",
+    description: [
+      "Implemented pipelines to pull bioreactor sensor time-series from lab instrumentation systems",
+      "Modeled bioprocess KPIs across 21 batches using Prophet forecasting for per-run and short-horizon predictions",
+      "Shipped interactive dashboards in Dash/Power BI using Docker on AWS with RDS security via IAM and VPC",
+      "Collaborated with mentors to iterate on KPI visuals and present batch trends at year-end symposium"
+    ],
+    technologies: ["Python", "Dash", "Prophet", "AWS", "Docker", "PostgreSQL", "Power BI", "AVEVA PI"]
+  },
+  {
     id: "sourashtra-ai",
-    title: "AI Developer",
+    title: "Software Developer",
     company: "Sourashtra Association Inc.",
     location: "Raleigh, North Carolina",
-    duration: "June 2025 - Present",
+    duration: "June 2025 - Aug 2025",
     description: [
       "Led team to prototype 4 ASR models achieving 95% transcription accuracy with 36% WER reduction",
       "Built comprehensive benchmarking framework demonstrating Whisper's superior performance",
@@ -250,7 +282,7 @@ export const experiences: Experience[] = [
     description: [
       "Integrated Tobii.Interaction API for real-time motion and gaze tracking data retrieval",
       "Implemented sensor fusion algorithms using Kalman filters and neural networks in R",
-      "Achieved 30% reduction in positional errors through advanced ML models",
+      "Achieved 33% reduction in positional errors through advanced ML models",
       "Developed 3D prediction models combining multiple sensor inputs"
     ],
     technologies: ["R", "Tobii API", "Kalman Filters", "Random Forest", "Neural Networks"]

@@ -20,7 +20,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 import dotenv from "dotenv";
-dotenv.config({ path: new URL('./.env', import.meta.url) });// custom logging middleware; captures req start time, path, and response status code
+import { fileURLToPath } from "url";
+import { dirname, join } from "path";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+dotenv.config({ path: join(__dirname, '.env') });// custom logging middleware; captures req start time, path, and response status code
 // and logs it to the console
 app.use((req, res, next) => {
   const start = Date.now();

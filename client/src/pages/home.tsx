@@ -12,9 +12,8 @@ import { ProjectsSection } from "@/components/projects-section";
 import { ExperienceSection } from "@/components/experience-section";
 import { ContactSection } from "@/components/contact-section";
 import { Footer } from "@/components/footer";
-import { CustomCursor } from "@/components/custom-cursor";
 import { Button } from "@/components/ui/button";
-import { ChevronUp } from "lucide-react"; // custom cursor and UI button 
+import { ChevronUp } from "lucide-react"; 
 
 // main home page component
 export default function Home() {
@@ -39,9 +38,7 @@ export default function Home() {
   };
 
   return (
-    <div className="custom-cursor">
-            {/* Custom animated cursor */}
-      <CustomCursor />
+    <div>
       {/* Navigation bar */}
        <Navigation /> 
       {/* Hero section */}
