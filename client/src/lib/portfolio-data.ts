@@ -48,6 +48,7 @@ export const skills: Skill[] = [
   // AI/ML
   { name: "Whisper", level: 90, category: "ai-ml" },
   { name: "PyTorch", level: 85, category: "ai-ml" },
+  { name: "LangChain", level: 83, category: "ai-ml" },
   { name: "Vosk", level: 82, category: "ai-ml" },
   { name: "Transformers", level: 80, category: "ai-ml" },
 
@@ -67,6 +68,27 @@ export const skills: Skill[] = [
 
 //list of projects each with details like id, title, description, image, technologies, category, achievements, githubUrl, and relatedArticles
 export const projects: Project[] = [
+  {
+    id: "adaptive-educational-platform",
+    title: "Adaptive Educational Platform",
+    description: "Adaptive remediation quiz system with real-time monitoring and personalized learning paths. Features intelligent question selection and multi-grade tracking. Developing POC for Wake County Library Schools funding, targeting February deadline for Brier Creek Elementary School introduction.",
+    image: import.meta.env.BASE_URL + 'quiz.jpg',
+    technologies: ["FastAPI", "React", "Oracle Database", "Prometheus", "Grafana", "SQLAlchemy", "LangChain"],
+    category: ["fullstack", "ai-ml", "data"],
+    achievements: [
+      "Adaptive 70/30 quiz generation (weak/strong topics)",
+      "Real-time Prometheus & Grafana dashboard",
+      "LangChain-powered LLM feedback",
+      "Scalable concurrent student sessions",
+      "Mastery tracking with consecutive pass requirements"
+    ],
+    githubUrl: "https://github.com/asnarana/educationalplat",
+    relatedArticles: [
+      "why-i-love-react",
+      "choosing-typescript",
+      "deploying-on-vercel"
+    ]
+  },
   {
     id: "iot-monitoring",
     title: "IoT Monitoring System",
